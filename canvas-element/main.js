@@ -36,22 +36,20 @@ window.navigator.mediaDevices.getUserMedia({
   if (videoElement.readyState !== videoElement.HAVE_ENOUGH_DATA) return;
   const mediaTrackSettings = mediaStream.getVideoTracks()[0].getSettings();
 
-  console.log(`w=${mediaTrackSettings.width}:h=${mediaTrackSettings.height}`);
-
   let sourceX = 0;
   let sourceY = 0;
   let sourceWidth = mediaTrackSettings.width;
   let sourceHeight = mediaTrackSettings.height;
+  const videoAspectRatio = mediaTrackSettings.aspectRatio ? mediaTrackSettings.aspectRatio : sourceWidth / sourceHeight;
   const canvasAspectRatio = canvasElement.width / canvasElement.height;
-  console.log("aspectRatio:" + mediaTrackSettings.aspectRatio);
-  if (mediaTrackSettings.aspectRatio > canvasAspectRatio) {
+  if (videoAspectRatio > canvasAspectRatio) {
     // 左右トリミング
-    sourceX = (mediaTrackSettings.width - mediaTrackSettings.height) * 0.5;
-    sourceWidth = mediaTrackSettings.height;
-  } else if (mediaTrackSettings.aspectRatio < canvasAspectRatio) {
+    sourceX = (sourceWidth - sourceHeight) * 0.5;
+    sourceWidth = sourceHeight;
+  } else if (videoAspectRatio < canvasAspectRatio) {
     // 上下トリミング
-    sourceY = (mediaTrackSettings.height - mediaTrackSettings.width) * 0.5;
-    sourceHeight = mediaTrackSettings.width;
+    sourceY = (sourceHeight - sourceWidth) * 0.5;
+    sourceHeight = sourceWidth;
   }
 
   canvasContext.drawImage(videoElement,
