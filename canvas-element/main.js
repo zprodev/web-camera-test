@@ -36,6 +36,8 @@ window.navigator.mediaDevices.getUserMedia({
   if (videoElement.readyState !== videoElement.HAVE_ENOUGH_DATA) return;
   const mediaTrackSettings = mediaStream.getVideoTracks()[0].getSettings();
 
+  console.log(`w=${mediaTrackSettings.width}:h=${mediaTrackSettings.height}`);
+
   let sourceX = 0;
   let sourceY = 0;
   let sourceWidth = mediaTrackSettings.width;
