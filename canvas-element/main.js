@@ -43,7 +43,7 @@ window.navigator.mediaDevices.getUserMedia({
   let sourceWidth = mediaTrackSettings.width;
   let sourceHeight = mediaTrackSettings.height;
   const canvasAspectRatio = canvasElement.width / canvasElement.height;
-  console.log(mediaTrackSettings.aspectRatio);
+  console.log("aspectRatio:" + mediaTrackSettings.aspectRatio);
   if (mediaTrackSettings.aspectRatio > canvasAspectRatio) {
     // 左右トリミング
     sourceX = (mediaTrackSettings.width - mediaTrackSettings.height) * 0.5;
