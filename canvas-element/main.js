@@ -43,14 +43,13 @@ window.navigator.mediaDevices.getUserMedia({
   let sourceWidth = mediaTrackSettings.width;
   let sourceHeight = mediaTrackSettings.height;
   const canvasAspectRatio = canvasElement.width / canvasElement.height;
+  console.log(mediaTrackSettings.aspectRatio);
   if (mediaTrackSettings.aspectRatio > canvasAspectRatio) {
     // 左右トリミング
-    console.log('左右トリミング');
     sourceX = (mediaTrackSettings.width - mediaTrackSettings.height) * 0.5;
     sourceWidth = mediaTrackSettings.height;
   } else if (mediaTrackSettings.aspectRatio < canvasAspectRatio) {
     // 上下トリミング
-    console.log('上下トリミング');
     sourceY = (mediaTrackSettings.height - mediaTrackSettings.width) * 0.5;
     sourceHeight = mediaTrackSettings.width;
   }
