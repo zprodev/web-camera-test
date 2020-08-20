@@ -12,8 +12,8 @@ document.body.appendChild(videoElement);
 
 const videoOption = {
   facingMode: 'environment',
-  width: videoElement.width * 10,
-  height: videoElement.height * 10,
+  width: 10000,
+  height: 10000,
 };
 
 window.navigator.mediaDevices.getUserMedia({
