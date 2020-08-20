@@ -28,7 +28,7 @@ window.navigator.mediaDevices.getUserMedia({
   videoElement.srcObject = _mediaStream;
   videoElement.play();
 }).catch((error) => {
-  alert(error.message);
+  alert(`Catch Error name=[${error.name}] message=[${error.message}] constraint=[${error.constraint}]`);
 });
 
 (function render() {
