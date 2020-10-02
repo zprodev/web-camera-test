@@ -14,6 +14,8 @@ VideoElementからCanvasElementにサイズ指定でマッピングする。
 
 ## 仕様確認用
 
+### [getCapabilitiesの内容確認](https://zprodev.github.io/web-camera-test/get-capabilities/)
+
 ### [VideoElementで無理のあるサイズを指定した場合](https://zprodev.github.io/web-camera-test/video-element-set-Invalid-size-option/)
 
 ### [CanvasElementでサイズ指定表示（Video要素も確認用に表示）](https://zprodev.github.io/web-camera-test/canvas-element-with-video-element/)
